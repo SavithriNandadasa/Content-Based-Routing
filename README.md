@@ -174,27 +174,131 @@ You can run the company_recruitment_agency_service  that you developed above, in
 ```
 $ ballerina run company_recruitment_agency_service.bal
 ```
+You can test the functionality of the company_recruitment_agency_service by sending HTTP POST request. For example, we have used the curl commands to test each routing operation of company_recruitment_agency_service as follows.
 
-
-### In order to obtain the output from the endpoint,please refer the following commands :
+**Route the request when "Name"="John and Brothers (pvt) Ltd"** 
 
 ```bash
-1. $ ballerina run company_recruitment_details.bal
+ $ curl -v http://localhost:9090/checkVacancies/company -d '{"Name" :"John and Brothers (pvt) Ltd"}' -H "Content- Type:application/json"
+  
+ Output : 
+  
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 9090 (#0)
+> POST /checkVacancies/company HTTP/1.1
+> Host: localhost:9090
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Content-Type:application/json
+> Content-Length: 40
+> 
 
-2. $ curl -v http://localhost:9090/checkVacancies/company -d '{"Name" : "ABC Company"}' -H "Content-Type:application/json"
+* upload completely sent off: 40 out of 40 bytes
+< HTTP/1.1 200 OK
+< Date: Mon, 11 Jun 2018 13:30:00 GMT
+< Content-Type: application/json
+< Via: 1.1 vegur
+< server: Cowboy
+< content-length: 356
 
-```
-
-### Output
-```bash
 {
-    "Name": "ABC Company",
-    "Total number of Vacancies": 10,
-    "Available job roles": "Senior Finance Manager = 2 ,Marketing Executives =6 HR Manager=2",
-    "CV Closing Date": "20/07/2018,
-    "Contact No": 0112674823,
-    "Email Address": "careers@abc.com",    
+     Name: "John and Brothers (pvt) Ltd",
+     Total_number_of_Vacancies: 12,
+     Available_job_roles : "Senior Software Engineer = 3 ,Marketing Executives =5 Management Trainees=4",
+     CV_Closing_Date: "17/06/2018" ,
+     ContactNo: 01123456 ,
+     Email_Address: "careersjohn@jbrothers.com"
+    
+    
+* Connection #0 to host localhost left intact
 }
+```
+
+**Route the request when "Name"="ABC Company"**
+
+```bash
+$ curl -v http://localhost:9090/checkVacancies/company -d '{"Name" : "ABC Company"}' -H "Content-Type:application/json"
+
+Output : 
+
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 9090 (#0)
+> POST /checkVacancies/company HTTP/1.1
+> Host: localhost:9090
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Content-Type:application/json
+> Content-Length: 40
+
+* upload completely sent off: 40 out of 40 bytes
+< HTTP/1.1 200 OK
+< Date: Mon, 11 Jun 2018 13:30:00 GMT
+< Content-Type: application/json
+< Via: 1.1 vegur
+< server: Cowboy
+< content-length: 356
+
+{
+    Name: "John and Brothers (pvt) Ltd",
+    Total_number_of_Vacancies: 12,
+    Available_job_roles : "Senior Software Engineer = 3 ,Marketing Executives =5 Management Trainees=4",
+    CV_Closing_Date: "17/06/2018" ,
+    ContactNo: 01123456 ,
+    Email_Address: "careersjohn@jbrothers.com"         
+ }
 
 ```
+
+**Route the request when "Name"="Smart Automobile"**
+
+```bash
+$ curl -v http://localhost:9090/checkVacancies/company -d '{"Name" : "Smart Automobile"}' -H "Content-Type:application/json"
+
+Output :
+
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 9090 (#0)
+> POST /checkVacancies/company HTTP/1.1
+> Host: localhost:9090
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Content-Type:application/json
+> Content-Length: 29
+
+* upload completely sent off: 29 out of 29 bytes
+< HTTP/1.1 200 OK
+< Date: Mon, 11 Jun 2018 12:27:45 GMT
+< Content-Type: application/json
+< Via: 1.1 vegur
+< server: Cowboy
+< content-length: 315
+
+{
+    Name:"Smart Automobile",
+    Total_number_of_Vacancies: 11,
+    Available_job_roles : "Senior Finance Manager = 2 ,Marketing Executives =6 HR Manager=3",
+    CV_Closing_Date: "20/07/2018" ,
+    ContactNo: 0112774 ,
+    Email_Address: "careers@smart.com"
+
+ }
+```
+### Writing unit tests 
+
+In Ballerina, the unit test cases should be in the same package inside a folder named as 'tests'.  When writing the test functions the below convention should be followed.
+- Test functions should be annotated with `@test:Config`. See the below example.
+```ballerina
+   @test:Config
+   Company_Recruitments_Agency) {
+```
+  
+This guide contains unit test cases for each resource available in the 'company_recruitment_agency_service implemented above. 
+
+To run the unit tests, open your terminal and navigate to `/content-based-routing/guide`, and run the following command.
+```bash
+   $ ballerina test
+```
+
+
+
 
