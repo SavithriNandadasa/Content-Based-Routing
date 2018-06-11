@@ -174,15 +174,53 @@ You can run the company_recruitment_agency_service  that you developed above, in
 ```
 $ ballerina run company_recruitment_agency_service.bal
 ```
+You can test the functionality of the company_recruitment_agency_service by sending HTTP POST request. For example, we have used the curl commands to test each routing operation of company_recruitment_agency_service as follows.
 
-
-### In order to obtain the output from the endpoint,please refer the following commands :
+**Route the request when "Name"="John and Brothers (pvt) Ltd"** 
 
 ```bash
-1. $ ballerina run company_recruitment_details.bal
+  $ curl -v http://localhost:9090/checkVacancies/company -d '{"Name" :"John and Brothers (pvt) Ltd"}' -H "Content- Type:application/json"
+```
 
-2. $ curl -v http://localhost:9090/checkVacancies/company -d '{"Name" : "ABC Company"}' -H "Content-Type:application/json"
+**Route the request when "Name"="ABC Company"**
 
+```bash
+$ curl -v http://localhost:9090/checkVacancies/company -d '{"Name" : "ABC Company"}' -H "Content-Type:application/json"
+
+Output : 
+
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 9090 (#0)
+> POST /checkVacancies/company HTTP/1.1
+> Host: localhost:9090
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Content-Type:application/json
+> Content-Length: 40
+> 
+* upload completely sent off: 40 out of 40 bytes
+< HTTP/1.1 200 OK
+< Date: Mon, 11 Jun 2018 13:30:00 GMT
+< Content-Type: application/json
+< Via: 1.1 vegur
+< server: Cowboy
+< content-length: 356
+< 
+{
+    Name: "John and Brothers (pvt) Ltd",
+    Total_number_of_Vacancies: 12,
+    Available_job_roles : "Senior Software Engineer = 3 ,Marketing Executives =5 Management Trainees=4",
+    CV_Closing_Date: "17/06/2018" ,
+    ContactNo: 01123456 ,
+    Email_Address: "careersjohn@jbrothers.com"         
+ }
+
+```
+
+**Route the request when "Name"="Smart Automobile"**
+
+```bash
+$ curl -v http://localhost:9090/checkVacancies/company -d '{"Name" : "Smart Automobile"}' -H "Content-Type:application/json"
 ```
 
 ### Output
