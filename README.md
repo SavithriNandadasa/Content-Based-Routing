@@ -289,12 +289,12 @@ In Ballerina, the unit test cases should be in the same package inside a folder 
 - Test functions should be annotated with `@test:Config`. See the below example.
 ```ballerina
    @test:Config
-   function testResourceAddOrder() {
+   Company_Recruitments_Agency) {
 ```
   
-This guide contains unit test cases for each resource available in the 'order_mgt_service' implemented above. 
+This guide contains unit test cases for each resource available in the 'company_recruitment_agency_service implemented above. 
 
-To run the unit tests, open your terminal and navigate to `restful-service/guide`, and run the following command.
+To run the unit tests, open your terminal and navigate to `/content-based-routing/guide`, and run the following command.
 ```bash
    $ ballerina test
 ```
