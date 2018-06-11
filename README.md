@@ -192,6 +192,7 @@ You can test the functionality of the company_recruitment_agency_service by send
 > Content-Type:application/json
 > Content-Length: 40
 > 
+
 * upload completely sent off: 40 out of 40 bytes
 < HTTP/1.1 200 OK
 < Date: Mon, 11 Jun 2018 13:30:00 GMT
@@ -199,7 +200,7 @@ You can test the functionality of the company_recruitment_agency_service by send
 < Via: 1.1 vegur
 < server: Cowboy
 < content-length: 356
-< 
+
 {
      Name: "John and Brothers (pvt) Ltd",
      Total_number_of_Vacancies: 12,
@@ -228,7 +229,7 @@ Output :
 > Accept: */*
 > Content-Type:application/json
 > Content-Length: 40
-> 
+
 * upload completely sent off: 40 out of 40 bytes
 < HTTP/1.1 200 OK
 < Date: Mon, 11 Jun 2018 13:30:00 GMT
@@ -236,7 +237,7 @@ Output :
 < Via: 1.1 vegur
 < server: Cowboy
 < content-length: 356
-< 
+
 {
     Name: "John and Brothers (pvt) Ltd",
     Total_number_of_Vacancies: 12,
@@ -254,6 +255,7 @@ Output :
 $ curl -v http://localhost:9090/checkVacancies/company -d '{"Name" : "Smart Automobile"}' -H "Content-Type:application/json"
 
 Output :
+
 *   Trying 127.0.0.1...
 * Connected to localhost (127.0.0.1) port 9090 (#0)
 > POST /checkVacancies/company HTTP/1.1
@@ -262,7 +264,7 @@ Output :
 > Accept: */*
 > Content-Type:application/json
 > Content-Length: 29
-> 
+
 * upload completely sent off: 29 out of 29 bytes
 < HTTP/1.1 200 OK
 < Date: Mon, 11 Jun 2018 12:27:45 GMT
@@ -270,7 +272,7 @@ Output :
 < Via: 1.1 vegur
 < server: Cowboy
 < content-length: 315
-< 
+
 {
     Name:"Smart Automobile",
     Total_number_of_Vacancies: 11,
