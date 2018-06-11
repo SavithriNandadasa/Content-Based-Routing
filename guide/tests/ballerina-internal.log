@@ -9,3 +9,46 @@ org.ballerinalang.util.exceptions.BallerinaException: [ERROR] Compilation failed
 	at java.util.Optional.ifPresent(Optional.java:159)
 	at org.ballerinalang.launcher.Main.main(Main.java:66)
  
+[2018-06-11 19:01:04,882] ERROR {org.ballerinalang.launcher.Main} - No test functions found in the provided ballerina files. 
+org.ballerinalang.util.exceptions.BallerinaException: No test functions found in the provided ballerina files.
+	at org.ballerinalang.testerina.core.BTestRunner.execute(BTestRunner.java:185)
+	at org.ballerinalang.testerina.core.BTestRunner.runTest(BTestRunner.java:88)
+	at org.ballerinalang.testerina.core.TestCmd.execute(TestCmd.java:158)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at org.ballerinalang.launcher.Main.main(Main.java:66)
+ 
+[2018-06-11 19:25:46,508] ERROR {org.ballerinalang.launcher.Main} - [ERROR] Compilation failed. 
+org.ballerinalang.util.exceptions.BallerinaException: [ERROR] Compilation failed.
+	at org.ballerinalang.testerina.core.BTestRunner.lambda$compileAndBuildSuites$34(BTestRunner.java:155)
+	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:580)
+	at org.ballerinalang.testerina.core.BTestRunner.compileAndBuildSuites(BTestRunner.java:140)
+	at org.ballerinalang.testerina.core.BTestRunner.runTest(BTestRunner.java:86)
+	at org.ballerinalang.testerina.core.TestCmd.execute(TestCmd.java:158)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at org.ballerinalang.launcher.Main.main(Main.java:66)
+ 
+[2018-06-11 21:58:30,681] ERROR {org.ballerinalang.launcher.Main} - No test functions found in the provided ballerina files. 
+org.ballerinalang.util.exceptions.BallerinaException: No test functions found in the provided ballerina files.
+	at org.ballerinalang.testerina.core.BTestRunner.execute(BTestRunner.java:185)
+	at org.ballerinalang.testerina.core.BTestRunner.runTest(BTestRunner.java:88)
+	at org.ballerinalang.testerina.core.TestCmd.execute(TestCmd.java:158)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at org.ballerinalang.launcher.Main.main(Main.java:66)
+ 
+[2018-06-11 22:31:55,726] ERROR {org.ballerinalang.launcher.Main} - No test functions found in the provided ballerina files. 
+org.ballerinalang.util.exceptions.BallerinaException: No test functions found in the provided ballerina files.
+	at org.ballerinalang.testerina.core.BTestRunner.execute(BTestRunner.java:185)
+	at org.ballerinalang.testerina.core.BTestRunner.runTest(BTestRunner.java:88)
+	at org.ballerinalang.testerina.core.TestCmd.execute(TestCmd.java:158)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at org.ballerinalang.launcher.Main.main(Main.java:66)
+ 
+[2018-06-11 23:08:18,887] ERROR {org.ballerinalang.launcher.Main} - No test functions found in the provided ballerina files. 
+org.ballerinalang.util.exceptions.BallerinaException: No test functions found in the provided ballerina files.
+	at org.ballerinalang.testerina.core.BTestRunner.execute(BTestRunner.java:185)
+	at org.ballerinalang.testerina.core.BTestRunner.runTest(BTestRunner.java:88)
+	at org.ballerinalang.testerina.core.TestCmd.execute(TestCmd.java:158)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at org.ballerinalang.launcher.Main.main(Main.java:66)
+ 

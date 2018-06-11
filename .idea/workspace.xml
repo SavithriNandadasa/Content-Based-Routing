@@ -16,10 +16,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="company_recruitment_agency_service.bal" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/guide/Company Recruitments Agency/company_recruitment_agency_service.bal">
+        <entry file="file://$PROJECT_DIR$/guide/Company_Recruitments_Agency/company_recruitment_agency_service.bal">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="72" column="48" selection-start-line="72" selection-start-column="48" selection-end-line="72" selection-end-column="48" />
+            <state>
+              <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -27,8 +27,17 @@
       <file leaf-file-name="company_recruitment_agency_service_test.bal" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/guide/tests/company_recruitment_agency_service_test.bal">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1368">
-              <caret line="103" column="1" selection-start-line="103" selection-start-column="1" selection-end-line="103" selection-end-column="1" />
+            <state relative-caret-position="-988">
+              <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ballerina-internal.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/guide/tests/ballerina-internal.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -40,6 +49,7 @@
       <list>
         <option value="Ballerina Main" />
         <option value="Ballerina File" />
+        <option value="Ballerina Service" />
       </list>
     </option>
   </component>
@@ -51,6 +61,8 @@
       <list>
         <option value="$PROJECT_DIR$/guide/Company Recruitments Agency/sdsf.bal" />
         <option value="$PROJECT_DIR$/guide/Company Recruitments Agency/company_recruitment_agency_service.bal" />
+        <option value="$PROJECT_DIR$/guide/tests/company_test.bal" />
+        <option value="$PROJECT_DIR$/guide/Company_Recruitments_Agency/test.bal" />
         <option value="$PROJECT_DIR$/guide/tests/company_recruitment_agency_service_test.bal" />
       </list>
     </option>
@@ -82,6 +94,18 @@
               <item name="content-based-routing" type="462c0819:PsiDirectoryNode" />
               <item name="guide" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="content-based-routing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="content-based-routing" type="462c0819:PsiDirectoryNode" />
+              <item name="guide" type="462c0819:PsiDirectoryNode" />
+              <item name="Company_Recruitments_Agency" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="content-based-routing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="content-based-routing" type="462c0819:PsiDirectoryNode" />
+              <item name="guide" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -89,8 +113,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="Empty file" value="Ballerina File" />
-    <property name="last_opened_file_path" value="$USER_HOME$/ballerina-examples/examples/content-based-routing/tests/content_based_routing_test.bal" />
+    <property name="Empty file" value="Ballerina Service" />
+    <property name="last_opened_file_path" value="$USER_HOME$/ballerina-examples/examples/content-based-routing" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -192,10 +216,10 @@
       <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" weight="0.32945737" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32945737" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.31937984" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24989708" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24989708" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" />
@@ -209,6 +233,9 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.log" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -227,13 +254,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/guide/Company Recruitments Agency/company_recruitment_agency_service.bal">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="72" column="48" selection-start-line="72" selection-start-column="48" selection-end-line="72" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Ballerina/Content based routing/guide/testsOld/companyRectuitment.bal">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="727">
@@ -241,10 +261,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/guide/Company_Recruitments_Agency/company_recruitment_agency_service.bal">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="43" column="33" lean-forward="true" selection-end-line="92" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guide/tests/ballerina-internal.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guide/Company_Recruitments_Agency/company_recruitment_agency_service.bal">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guide/tests/company_test.bal">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/guide/tests/company_recruitment_agency_service_test.bal">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1368">
-          <caret line="103" column="1" selection-start-line="103" selection-start-column="1" selection-end-line="103" selection-end-column="1" />
+        <state relative-caret-position="-988">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
         </state>
       </provider>
     </entry>

@@ -1,0 +1,18 @@
+[2018-06-11 19:04:27,145] ERROR {org.ballerinalang.launcher.Main} - org.ballerinalang.util.exceptions.BallerinaException: Cannot find the specified before function : [startService] for testerina function : [testFunc] 
+org.ballerinalang.util.exceptions.BallerinaException: org.ballerinalang.util.exceptions.BallerinaException: Cannot find the specified before function : [startService] for testerina function : [testFunc]
+	at org.ballerinalang.testerina.core.BTestRunner.lambda$null$33(BTestRunner.java:171)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at org.ballerinalang.testerina.core.BTestRunner.lambda$compileAndBuildSuites$34(BTestRunner.java:165)
+	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:580)
+	at org.ballerinalang.testerina.core.BTestRunner.compileAndBuildSuites(BTestRunner.java:140)
+	at org.ballerinalang.testerina.core.BTestRunner.runTest(BTestRunner.java:86)
+	at org.ballerinalang.testerina.core.TestCmd.execute(TestCmd.java:158)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at org.ballerinalang.launcher.Main.main(Main.java:66)
+Caused by: org.ballerinalang.util.exceptions.BallerinaException: Cannot find the specified before function : [startService] for testerina function : [testFunc]
+	at org.ballerinalang.testerina.core.TestAnnotationProcessor.resolveFunctions(TestAnnotationProcessor.java:347)
+	at org.ballerinalang.testerina.core.TestAnnotationProcessor.packageProcessed(TestAnnotationProcessor.java:246)
+	at org.ballerinalang.testerina.core.BTestRunner.lambda$null$33(BTestRunner.java:168)
+	... 9 more
+ 

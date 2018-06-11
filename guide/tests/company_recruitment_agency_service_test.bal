@@ -4,16 +4,21 @@ import ballerina/test;
 
 boolean serviceStarted;
 
-function startService() {
-    serviceStarted = test:startServices("content-based-routing");
+
+
+function startServices() {
+    serviceStarted = test:startServices("guide");
+
 }
 
 @test:Config {
-    before: "startService",
-    after: "stopService"
+    before: "startServices",
+    after: "stopServices"
 }
 
-function testFunc() {
+
+
+function Company_Recruitments_Agency() {
 
     // Invoking the main function
     endpoint http:Client httpEndpoint { url: "http://localhost:9090" };
@@ -99,6 +104,8 @@ function testFunc() {
 }
 
 
-function stopService() {
-    test:stopServices("content-based-routing");
+
+function stopServices() {
+    test:stopServices("guide");
 }
+
