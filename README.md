@@ -228,7 +228,7 @@ Output :
 > User-Agent: curl/7.47.0
 > Accept: */*
 > Content-Type:application/json
-> Content-Length: 40
+> Content-Length: 22
 
 * upload completely sent off: 40 out of 40 bytes
 < HTTP/1.1 200 OK
@@ -236,15 +236,16 @@ Output :
 < Content-Type: application/json
 < Via: 1.1 vegur
 < server: Cowboy
-< content-length: 356
+< content-length: 308
 
 {
-    Name: "John and Brothers (pvt) Ltd",
-    Total_number_of_Vacancies: 12,
-    Available_job_roles : "Senior Software Engineer = 3 ,Marketing Executives =5 Management Trainees=4",
-    CV_Closing_Date: "17/06/2018" ,
-    ContactNo: 01123456 ,
-    Email_Address: "careersjohn@jbrothers.com"         
+     Name:"ABC Company",
+     Total_number_of_Vacancies: 10,
+     Available_job_roles : "Senior Finance Manager = 2 ,Marketing Executives =6 HR Manager=2",
+     CV_Closing_Date: "20/07/2018" ,
+     ContactNo: 0112774 ,
+     Email_Address: "careers@abc.com"
+        
  }
 
 ```
@@ -299,6 +300,26 @@ To run the unit tests, open your terminal and navigate to `/content-based-routin
    $ ballerina test
 ```
 
+## Deployment
 
+Once you are done with the development, you can deploy the service using any of the methods that we listed below. 
+
+### Deploying locally
+
+- As the first step, you can build a Ballerina executable archive (.balx) of the service that we developed above. Navigate to `/content-based-routing/guide` and run the following command. 
+```bash
+   $ ballerina build company_recruitment_agency_service
+```
+
+- Once the company_recruitment_agency_service.balx is created inside the target folder, you can run that with the following command. 
+```bash
+   $ ballerina run target/company_recruitment_agency_service.balx
+```
+
+- The successful execution of the service will show us the following output. 
+```
+   ballerina: initiating service(s) in 'target/company_recruitment_agency_service.balx'
+   ballerina: started HTTP/WS endpoint 0.0.0.0:9090
+```
 
 
