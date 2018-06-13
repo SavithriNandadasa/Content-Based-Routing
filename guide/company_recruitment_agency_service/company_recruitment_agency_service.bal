@@ -2,9 +2,24 @@ import ballerina/http;
 import ballerina/log;
 import ballerina/mime;
 import ballerina/io;
+import ballerinax/docker;
 
 // Client endpoint to communicate with company recruitment service
 //"http://www.mocky.io" is used to create mock services
+
+
+@docker:Config {
+    registry:"ballerina.guides.io",
+    name:"company_recruitment_agency_service",
+    tag:"v1.0"
+}
+
+@docker:Expose {}
+
+endpoint http:Listener comEP {
+    port: 9090
+};
+
 endpoint http:Client locationEP {
     url: "http://www.mocky.io"
 };
@@ -15,7 +30,7 @@ endpoint http:Client locationEP {
 }
 
 //comapnyRecruitmentsAgency service to route each request to relevent endpoints and get their responses.
-service<http:Service> comapnyRecruitmentsAgency  bind { port: 9090 } {
+service<http:Service> comapnyRecruitmentsAgency  bind comEP {
 
 
     //`http:resourceConfig{}` annotation with POST method declares the HTTP method.
