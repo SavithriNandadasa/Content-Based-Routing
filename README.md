@@ -504,7 +504,7 @@ NOTE:  Ballerina will by default have following metrics for HTTP server connecto
 
 Ballerina has a log package for logging to the console. You can import ballerina/log package and start logging. The following section will describe how to search, analyze, and visualize logs in real time using Elastic Stack.
 
-- Start the Ballerina Service with the following command from ``/content-based-routing/guide`
+- Start the Ballerina Service with the following command from `/content-based-routing/guide`
 ```
    $ nohup ballerina runcompany_recruitment_agency_service/ &>> ballerina.log&
 ```
