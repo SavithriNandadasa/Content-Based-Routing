@@ -403,6 +403,106 @@ service<http:Service> comapnyRecruitmentsAgency  bind comEP {
 
 - First we need to import `ballerinax/kubernetes` and use `@kubernetes` annotations as shown below to enable kubernetes deployment for the service we developed above. 
 
+##### company_recruitment_agency_service
+
+```ballerina
+import ballerina/http;
+import ballerinax/kubernetes;
+
+@kubernetes:Ingress {
+    hostname:"ballerina.guides.io",
+    name:"ballerina-guides-company_recruitment_agency_service",
+    path:"/"
+}
+
+@kubernetes:Service {
+    serviceType:"NodePort",
+    name:"ballerina-guides-company_recruitment_agency_service"
+}
+
+@kubernetes:Deployment {
+    image:"ballerina.guides.io/restful_service:v1.0",
+    name:"ballerina-company_recruitment_agency_service"
+}
+
+endpoint http:Listener comEP {
+    port: 9090
+};
+
+// Client endpoint to communicate with company recruitment service
+//"http://www.mocky.io" is used to create mock services
+endpoint http:Client locationEP {
+    url: "http://www.mocky.io"
+};
+
+//Service is invoked using `basePath` value "/checkVacancies"
+@http:ServiceConfig {
+    basePath: "/checkVacancies"
+}
+
+//comapnyRecruitmentsAgency service to route each request to relevent endpoints and get their responses.
+service<http:Service> comapnyRecruitmentsAgency  bind comEP {
+``` 
+
+- Here we have used `@kubernetes:Deployment` to specify the docker image name which will be created as part of building this service. 
+- We have also specified `@kubernetes:Service` so that it will create a Kubernetes service which will expose the Ballerina service that is running on a Pod.  
+- In addition we have used `@kubernetes:Ingress` which is the external interface to access your service (with path `/` and host name `ballerina.guides.io`)
+
+- Now you can build a Ballerina executable archive (.balx) of the service that we developed above, using the following command. This will also create the corresponding docker image and the Kubernetes artifacts using the Kubernetes annotations that you have configured above.
+  
+```
+   $ ballerina build restful_service
+  
+   Run following command to deploy kubernetes artifacts:  
+   kubectl apply -f ./target/restful_service/kubernetes
+```
+
+- You can verify that the docker image that we specified in `@kubernetes:Deployment` is created, by using `$ docker images`. 
+- Also the Kubernetes artifacts related our service, will be generated in `./target/restful_service/kubernetes`. 
+- Now you can create the Kubernetes deployment using:
+
+```bash
+   $ kubectl apply -f ./target/restful_service/kubernetes 
+ 
+   deployment.extensions "ballerina-guides-restful-service" created
+   ingress.extensions "ballerina-guides-restful-service" created
+   service "ballerina-guides-restful-service" created
+```
+
+- You can verify Kubernetes deployment, service and ingress are running properly, by using following Kubernetes commands.
+
+```bash
+   $ kubectl get service
+   $ kubectl get deploy
+   $ kubectl get pods
+   $ kubectl get ingress
+```
+
+- If everything is successfully deployed, you can invoke the service either via Node port or ingress. 
+
+Node Port:
+ 
+```bash
+   curl -v -X POST -d \
+   '{ "Order": { "ID": "100500", "Name": "XYZ", "Description": "Sample order."}}' \
+   "http://localhost:<Node_Port>/ordermgt/order" -H "Content-Type:application/json"  
+```
+
+Ingress:
+
+Add `/etc/hosts` entry to match hostname. 
+``` 
+   127.0.0.1 ballerina.guides.io
+```
+
+Access the service 
+```bash 
+   curl -v -X POST -d \
+   '{ "Order": { "ID": "100500", "Name": "XYZ", "Description": "Sample order."}}' \
+   "http://ballerina.guides.io/ordermgt/order" -H "Content-Type:application/json" 
+```
+
+
 ## Observability 
 Ballerina is by default observable. Meaning you can easily observe your services, resources, etc.
 However, observability is disabled by default via configuration. Observability can be enabled by adding following configurations to `ballerina.conf` file in `/content-based-routing/guide`.
