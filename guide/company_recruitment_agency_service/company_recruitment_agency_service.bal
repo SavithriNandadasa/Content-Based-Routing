@@ -10,13 +10,13 @@ import ballerina/io;
 
 //@kubernetes:Ingress {
 //    hostname:"ballerina.guides.io",
-//    name:"company_recruitment_agency_service",
+//    name:"ballerina-guides-company_recruitment_agency_service",
 //    path:"/"
 //}
 //
 //@kubernetes:Service {
 //    serviceType:"NodePort",
-//    name:"company_recruitment_agency_service"
+//    name:"ballerina-guides-company_recruitment_agency_service"
 //}
 //
 //@kubernetes:Deployment {
