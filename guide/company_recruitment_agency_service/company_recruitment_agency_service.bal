@@ -2,24 +2,52 @@ import ballerina/http;
 import ballerina/log;
 import ballerina/mime;
 import ballerina/io;
-import ballerinax/docker;
 
-// Client endpoint to communicate with company recruitment service
-//"http://www.mocky.io" is used to create mock services
+//Deploying on kubernetes
+
+//import ballerina/http;
+//import ballerinax/kubernetes;
+
+//@kubernetes:Ingress {
+//    hostname:"ballerina.guides.io",
+//    name:"company_recruitment_agency_service",
+//    path:"/"
+//}
+//
+//@kubernetes:Service {
+//    serviceType:"NodePort",
+//    name:"company_recruitment_agency_service"
+//}
+//
+//@kubernetes:Deployment {
+//    image:"ballerina.guides.io/company_recruitment_agency_service:v1.0",
+//    name:"ballerina-guides-company_recruitment_agency_service"
+//}
 
 
-@docker:Config {
-    registry:"ballerina.guides.io",
-    name:"company_recruitment_agency_service",
-    tag:"v1.0"
-}
 
-@docker:Expose {}
+//Deploying on docker
+
+//import ballerina/http;
+//import ballerinax/docker;
+
+//@docker:Config {
+//    registry:"ballerina.guides.io",
+//    name:"company_recruitment_agency_service",
+//    tag:"v1.0"
+//}
+//
+//@docker:Expose {}
+//
+
+
 
 endpoint http:Listener comEP {
     port: 9090
 };
 
+// Client endpoint to communicate with company recruitment service
+//"http://www.mocky.io" is used to create mock services
 endpoint http:Client locationEP {
     url: "http://www.mocky.io"
 };
