@@ -329,6 +329,8 @@ You can run the service that we developed above as a docker container. As Baller
 
 - In our company_recruitment_agency_service, we need to import  `ballerinax/docker` and use the annotation `@docker:Config` as shown below to enable docker image generation during the build time. 
 
+##### company_recruitment_agency_service.bal
+
 ```ballerina
 
 import ballerina/http;
@@ -403,7 +405,7 @@ service<http:Service> comapnyRecruitmentsAgency  bind comEP {
 
 - First we need to import `ballerinax/kubernetes` and use `@kubernetes` annotations as shown below to enable kubernetes deployment for the service we developed above. 
 
-##### company_recruitment_agency_service
+##### company_recruitment_agency_service.bal
 
 ```ballerina
 import ballerina/http;
@@ -421,8 +423,8 @@ import ballerinax/kubernetes;
 }
 
 @kubernetes:Deployment {
-    image:"ballerina.guides.io/restful_service:v1.0",
-    name:"ballerina-company_recruitment_agency_service"
+    image:"ballerina.guides.io/company_recruitment_agency_service:v1.0",
+    name:"ballerina-guides-company_recruitment_agency_service"
 }
 
 endpoint http:Listener comEP {
@@ -451,22 +453,23 @@ service<http:Service> comapnyRecruitmentsAgency  bind comEP {
 - Now you can build a Ballerina executable archive (.balx) of the service that we developed above, using the following command. This will also create the corresponding docker image and the Kubernetes artifacts using the Kubernetes annotations that you have configured above.
   
 ```
-   $ ballerina build restful_service
+   $ ballerina build company_recruitment_agency_service
   
    Run following command to deploy kubernetes artifacts:  
    kubectl apply -f ./target/restful_service/kubernetes
 ```
 
 - You can verify that the docker image that we specified in `@kubernetes:Deployment` is created, by using `$ docker images`. 
-- Also the Kubernetes artifacts related our service, will be generated in `./target/restful_service/kubernetes`. 
+- Also the Kubernetes artifacts related our service, will be generated in `./target/company_recruitment_agency_service/kubernetes`. 
+
 - Now you can create the Kubernetes deployment using:
 
 ```bash
-   $ kubectl apply -f ./target/restful_service/kubernetes 
+   $ kubectl apply -f ./target/company_recruitment_agency_service/kubernetes 
  
-   deployment.extensions "ballerina-guides-restful-service" created
-   ingress.extensions "ballerina-guides-restful-service" created
-   service "ballerina-guides-restful-service" created
+   deployment.extensions "ballerina-guides-company_recruitment_agency_service" created
+   ingress.extensions "ballerina-guides-company_recruitment_agency_service" created
+   service "ballerina-guides-company_recruitment_agency_service" created
 ```
 
 - You can verify Kubernetes deployment, service and ingress are running properly, by using following Kubernetes commands.
@@ -481,11 +484,19 @@ service<http:Service> comapnyRecruitmentsAgency  bind comEP {
 - If everything is successfully deployed, you can invoke the service either via Node port or ingress. 
 
 Node Port:
- 
+
+**Request when "Name"="John and Brothers (pvt) Ltd"**
 ```bash
-   curl -v -X POST -d \
-   '{ "Order": { "ID": "100500", "Name": "XYZ", "Description": "Sample order."}}' \
-   "http://localhost:<Node_Port>/ordermgt/order" -H "Content-Type:application/json"  
+    $ curl -v http://localhost:<Node_Port>/checkVacancies/company -d '{"Name" :"John and Brothers (pvt) Ltd"}' -H "Content- Type:application/json"
+```
+
+**Request when "Name"="ABC Company"**
+```bash
+    $ curl -v http://localhost:<Node_Port>/checkVacancies/company -d '{"Name" :"ABC Company"}' -H "Content- Type:application/json"
+```
+**Request when "Name"="Smart Automobile**
+```bash
+    $ curl -v http://localhost:<Node_Port>/checkVacancies/company -d '{"Name" :"Smart Automobile"}' -H "Content- Type:application/json"
 ```
 
 Ingress:
@@ -494,14 +505,21 @@ Add `/etc/hosts` entry to match hostname.
 ``` 
    127.0.0.1 ballerina.guides.io
 ```
-
 Access the service 
-```bash 
-   curl -v -X POST -d \
-   '{ "Order": { "ID": "100500", "Name": "XYZ", "Description": "Sample order."}}' \
-   "http://ballerina.guides.io/ordermgt/order" -H "Content-Type:application/json" 
+
+**Request when "Name"="John and Brothers (pvt) Ltd"**
+```bash
+    $ curl -v http:/ballerina.guides.io/checkVacancies/company -d '{"Name" :"John and Brothers (pvt) Ltd"}' -H "Content- Type:application/json"
 ```
 
+**Request when "Name"="ABC Company"**
+```bash
+    $ curl -v http:/ballerina.guides.io/checkVacancies/company -d '{"Name" :"ABC Company"}' -H "Content- Type:application/json"
+```
+**Request when "Name"="Smart Automobile**
+```bash
+    $ curl -v http://ballerina.guides.io/checkVacancies/company -d '{"Name" :"Smart Automobile"}' -H "Content- Type:application/json"
+```
 
 ## Observability 
 Ballerina is by default observable. Meaning you can easily observe your services, resources, etc.
