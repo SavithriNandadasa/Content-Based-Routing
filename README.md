@@ -395,6 +395,14 @@ service<http:Service> comapnyRecruitmentsAgency  bind comEP {
 ```bash
     $ curl -v http://localhost:9090/checkVacancies/company -d '{"Name" :"Smart Automobile"}' -H "Content- Type:application/json"
 ```
+### Deploying on Kubernetes
+
+- You can run the service that we developed above, on Kubernetes. The Ballerina language offers native support for running a ballerina programs on Kubernetes, with the use of Kubernetes annotations that you can include as part of your service code. Also, it will take care of the creation of the docker images. So you don't need to explicitly create docker images prior to deploying it on Kubernetes. Refer to [Ballerina_Kubernetes_Extension](https://github.com/ballerinax/kubernetes) for more details and samples on Kubernetes deployment with Ballerina. You can also find details on using Minikube to deploy Ballerina programs. 
+
+- Let's now see how we can deploy our `company_recruitment_agency_service` on Kubernetes.
+
+- First we need to import `ballerinax/kubernetes` and use `@kubernetes` annotations as shown below to enable kubernetes deployment for the service we developed above. 
+
 ## Observability 
 Ballerina is by default observable. Meaning you can easily observe your services, resources, etc.
 However, observability is disabled by default via configuration. Observability can be enabled by adding following configurations to `ballerina.conf` file in `/content-based-routing/guide`.
