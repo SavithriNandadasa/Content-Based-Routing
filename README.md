@@ -330,6 +330,9 @@ You can run the service that we developed above as a docker container. As Baller
 
 ```ballerina
 
+import ballerina/http;
+import ballerinax/docker;
+
 @docker:Config {
     registry:"ballerina.guides.io",
     name:"company_recruitment_agency_service",
@@ -357,5 +360,38 @@ endpoint http:Client locationEP {
 
 service<http:Service> comapnyRecruitmentsAgency  bind comEP {
 
+```
+- `@docker:Config` annotation is used to provide the basic docker image configurations for the sample. `@docker:Expose {}` is used to expose the port. 
+
+- Now you can build a Ballerina executable archive (.balx) of the service that we developed above, using the following command. This will also create the corresponding docker image using the docker annotations that you have configured above. Navigate to `/content-based-routing/guide` and run the following command.  
+```
+   $ ballerina build company_recruitment_agency_service
+
+   Run following command to start docker container: 
+   docker run -d -p 9090:9090 ballerina.guides.io/company_recruitment_agency_service:v1.0
+```
+
+- Once you successfully build the docker image, you can run it with the `docker run` command that is shown in the previous step.  
+```bash   
+   $ docker run -d -p 9090:9090 ballerina.guides.io/company_recruitment_agency_service:v1.0
+```
+
+  Here we run the docker image with flag `-p <host_port>:<container_port>` so that we  use  the host port 9090 and the container port 9090. Therefore you can access the service through the host port. 
+
+- Verify docker container is running with the use of `$ docker ps`. The status of the docker container should be shown as 'Up'. 
+- You can access the service using the same curl commands that we've used above. 
+
+- Route the request when "Name"="John and Brothers (pvt) Ltd"
+```bash
+    $ curl -v http://localhost:9090/checkVacancies/company -d '{"Name" :"John and Brothers (pvt) Ltd"}' -H "Content- Type:application/json"
+```
+
+- Route the request when "Name"="ABC Company"
+```bash
+    $ curl -v http://localhost:9090/checkVacancies/company -d '{"Name" :"ABC Company"}' -H "Content- Type:application/json"
+```
+- Route the request when "Name"="Smart Automobile"
+```bash
+    $ curl -v http://localhost:9090/checkVacancies/company -d '{"Name" :"Smart Automobile"}' -H "Content- Type:application/json"
 ```
 
