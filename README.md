@@ -456,7 +456,7 @@ service<http:Service> comapnyRecruitmentsAgency  bind comEP {
    $ ballerina build company_recruitment_agency_service
   
    Run following command to deploy kubernetes artifacts:  
-   kubectl apply -f ./target/restful_service/kubernetes
+   kubectl apply -f ./target/company_recruitment_agency_service/kubernetes
 ```
 
 - You can verify that the docker image that we specified in `@kubernetes:Deployment` is created, by using `$ docker images`. 
