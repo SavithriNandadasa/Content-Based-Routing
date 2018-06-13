@@ -18,7 +18,7 @@ The following are the sections available in this guide.
 
 ## What you’ll build
 
-To understanding how you can build a content based routing using Ballerina, let's consider a real-world use case of a Company recruitmet agency that provides recruiments details of companies. When Company recruitmet agency sends a request that includes the company name (EX : ABC Company), that particular request  will be routed to  to its respective endpoint. The Company recruitmet agency service requires communicating with other necessary back-ends. The following diagram illustrates this use case clearly.
+To understanding how you can build a content based routing using Ballerina, let's consider a real-world use case of a Company recruitment agency that provides recruiments details of companies. When Company recruitment agency sends a request that includes the company name (EX : ABC Company), that particular request  will be routed to  to its respective endpoint. The company recruitment agency service requires communicating with other necessary back-ends. The following diagram illustrates this use case clearly.
 
 ![alt text](/images/BBG-Content_Based_Routing.png)
 
@@ -43,7 +43,7 @@ To understanding how you can build a content based routing using Ballerina, let'
 Ballerina is a complete programming language that supports custom project structures. Use the following package structure for this guide.
 
 ```
-Company_Recruitment
+content-based-routing
  └── guide
       └── Company Recruitments agency_service
            ├── company_recruitment_agency_service.bal
@@ -59,9 +59,9 @@ Company_Recruitment
 ```
 
 ### Developing the service
-Let's look at the implementation of the Company recruitmet agency service , which acts as The Content-Based Router.
+Let's look at the implementation of the company_recruitment_agency_service , which acts as The Content-Based Router.
 
-Let's consider that a request comes to the Company recruitmet agency service with a specific content. when Company recruitmet agency service receives the request message, reads it, and routes the request to one of the recipients according to the message's content.
+Let's consider that a request comes to the Company recruitmet agency service with a specific content. when company_recruitment_agency_service receives the request message, reads it, and routes the request to one of the recipients according to the message's content.
 
 ##### company_recruitment_agency_service.bal
 
@@ -438,7 +438,7 @@ Follow the following steps to use tracing with Ballerina.
 - Run Jaeger docker image using the following command
 ```bash
    $ docker run -d -p5775:5775/udp -p6831:6831/udp -p6832:6832/udp -p5778:5778 \
-   -p16686:16686 p14268:14268 jaegertracing/all-in-one:latest
+   -p16686:16686 -p14268:14268 jaegertracing/all-in-one:latest
 ```
 
 - Navigate to `/content-based-routing/guide` and run the restful-service using following command 
@@ -504,11 +504,11 @@ NOTE:  Ballerina will by default have following metrics for HTTP server connecto
 
 Ballerina has a log package for logging to the console. You can import ballerina/log package and start logging. The following section will describe how to search, analyze, and visualize logs in real time using Elastic Stack.
 
-- Start the Ballerina Service with the following command from `restful-service/guide`
+- Start the Ballerina Service with the following command from ``/content-based-routing/guide`
 ```
-   $ nohup ballerina run restful_service/ &>> ballerina.log&
+   $ nohup ballerina runcompany_recruitment_agency_service/ &>> ballerina.log&
 ```
-   NOTE: This will write the console log to the `ballerina.log` file in the `restful-service/guide` directory
+   NOTE: This will write the console log to the `ballerina.log` file in the `/content-based-routing/guide` directory
 
 - Start Elasticsearch using the following command
 
@@ -583,7 +583,7 @@ iii) Start the logstash container, replace the {SAMPLE_ROOT} with your directory
      
 ```
 $ docker run -v {SAMPLE_ROOT}/filbeat/filebeat.yml:/usr/share/filebeat/filebeat.yml \
--v {SAMPLE_ROOT}/guide/restful_service/ballerina.log:/usr/share\
+-v {SAMPLE_ROOT}/guide/company_recruitment_agency_service/ballerina.log:/usr/share\
 /filebeat/ballerina.log --link logstash:logstash docker.elastic.co/beats/filebeat:6.2.2
 ```
  
