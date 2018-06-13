@@ -322,4 +322,40 @@ Once you are done with the development, you can deploy the service using any of 
    ballerina: started HTTP/WS endpoint 0.0.0.0:9090
 ```
 
+### Deploying on Docker
+
+You can run the service that we developed above as a docker container. As Ballerina platform includes [Ballerina_Docker_Extension](https://github.com/ballerinax/docker), which offers native support for running ballerina programs on containers, you just need to put the corresponding docker annotations on your service code. 
+
+- In our company_recruitment_agency_service, we need to import  `ballerinax/docker` and use the annotation `@docker:Config` as shown below to enable docker image generation during the build time. 
+
+```ballerina
+
+@docker:Config {
+    registry:"ballerina.guides.io",
+    name:"company_recruitment_agency_service",
+    tag:"v1.0"
+}
+
+@docker:Expose {}
+
+
+// Client endpoint to communicate with company recruitment service
+//"http://www.mocky.io" is used to create mock services
+
+endpoint http:Listener comEP {
+    port: 9090
+};
+
+endpoint http:Client locationEP {
+    url: "http://www.mocky.io"
+};
+
+//Service is invoked using `basePath` value "/checkVacancies"
+@http:ServiceConfig {
+    basePath: "/checkVacancies"
+}
+
+service<http:Service> comapnyRecruitmentsAgency  bind comEP {
+
+```
 
